@@ -1,0 +1,8 @@
+services:
+
+  Zohaibdev\InsurnacePremium\:
+      resource: '../Classes/*'
+      exclude: '../Classes/Domain/Model/*'
+      autowire: true
+      autoconfigure: true
+  

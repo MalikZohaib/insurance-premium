@@ -1,0 +1,25 @@
+<T3DataStructure>
+  <sheets>
+    <sDEF>
+      <ROOT>
+        <TCEforms>
+          <sheetTitle>Main Settings</sheetTitle>
+        </TCEforms>
+        <el>
+          <settings.policy>
+              <label>Select Insurance Policy</label>
+              <config>
+                <type>select</type>
+                <renderType>selectSingle</renderType>
+                <foreign_table>tx_insurnacepremium_domain_model_insurancepolicies</foreign_table>
+                <foreign_table_where>ORDER BY title</foreign_table_where>
+                <minitems>0</minitems>
+                <maxitems>1</maxitems>
+                <size>1</size>
+              </config>
+          </settings.policy>
+        </el>
+      </ROOT>
+    </sDEF>
+  </sheets>
+</T3DataStructure>

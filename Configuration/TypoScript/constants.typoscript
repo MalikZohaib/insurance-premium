@@ -1,0 +1,14 @@
+plugin.tx_insurnacepremium_insurancecalculator {
+    view {
+        # cat=plugin.tx_insurnacepremium_insurancecalculator/file; type=string; label=Path to template root (FE)
+        templateRootPath = EXT:insurnace_premium/Resources/Private/Templates/
+        # cat=plugin.tx_insurnacepremium_insurancecalculator/file; type=string; label=Path to template partials (FE)
+        partialRootPath = EXT:insurnace_premium/Resources/Private/Partials/
+        # cat=plugin.tx_insurnacepremium_insurancecalculator/file; type=string; label=Path to template layouts (FE)
+        layoutRootPath = EXT:insurnace_premium/Resources/Private/Layouts/
+    }
+    persistence {
+        # cat=plugin.tx_insurnacepremium_insurancecalculator//a; type=string; label=Default storage PID
+        storagePid =
+    }
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:insurnace_premium/Resources/Private/Language/locallang_csh_tx_insurnacepremium_domain_model_contribution.xlf" date="2025-06-10T18:24:42Z" product-name="insurnace_premium">
+		<header/>
+		<body>
+			<trans-unit id="amount.description" resname="amount.description">
+				<source>amount</source>
+			</trans-unit>
+			<trans-unit id="min_age.description" resname="min_age.description">
+				<source>minAge</source>
+			</trans-unit>
+			<trans-unit id="max_age.description" resname="max_age.description">
+				<source>maxAge</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (data.error) {
         resultEl.innerText = 'Error: ' + data.error;
         } else {
-        resultEl.innerText = 'Results: ' + JSON.stringify(data.data);
+        resultEl.innerText = 'Premium: ' + (data.data.contribution);
         }
     })
     .catch(err => {

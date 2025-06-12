@@ -23,3 +23,7 @@ ExtensionManagementUtility::addPiFlexFormValue(
     'FILE:EXT:insurnace_premium/Configuration/FlexForms/InsurancecalculatorPlugin.xml',
     $pluginSignature,
 );
+
+// Register the preview renderer for the tt_content type
+$GLOBALS['TCA']['tt_content']['types'][$pluginSignature]['previewRenderer']
+    = Zohaibdev\InsurnacePremium\Backend\Preview\InsuranceCalculatorPreviewRenderer::class;

@@ -7,12 +7,19 @@ defined('TYPO3') || die();
 $pluginSignature = \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     'InsurnacePremium',
     'Insurancecalculator',
-    'Insurance Calculator'
+    'Insurance Calculator',
+    'insurnace_premium-plugin-insurancecalculator'
 );
 
-$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
+ExtensionManagementUtility::addToAllTCAtypes(
+    'tt_content',
+    '--div--;Configuration,pi_flexform,',
+    $pluginSignature,
+    'after:subheader',
+);
 
 ExtensionManagementUtility::addPiFlexFormValue(
+    '*',
+    'FILE:EXT:insurnace_premium/Configuration/FlexForms/InsurancecalculatorPlugin.xml',
     $pluginSignature,
-    'FILE:EXT:insurnace_premium/Configuration/FlexForms/InsurancecalculatorPlugin.xml'
 );

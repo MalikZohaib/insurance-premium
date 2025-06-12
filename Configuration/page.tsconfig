@@ -1,0 +1,7 @@
+mod.web_layout {
+  tt_content {
+    preview {
+      insurnacepremium_insurancecalculator = EXT:insurnace_premium/Resources/Private/Templates/Preview/InsurnacepremiumInsurancecalculator.html
+    }
+  }
+}

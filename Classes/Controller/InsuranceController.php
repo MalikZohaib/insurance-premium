@@ -12,6 +12,7 @@ use TYPO3\CMS\Extbase\Annotation\Inject;
 use Psr\Http\Message\ResponseInterface;
 use Zohaibdev\InsurnacePremium\Domain\Model\Dto\PolicySearch;
 use Zohaibdev\InsurnacePremium\Domain\Repository\InsurancePoliciesRepository;
+use Zohaibdev\InsurnacePremium\Service\AgeContributionCacheService;
 use Zohaibdev\InsurnacePremium\Service\AgeRangeResolver;
 use Zohaibdev\InsurnacePremium\Utility\JsonResponseFactory;
 
@@ -23,12 +24,22 @@ class InsuranceController extends ActionController
      */
     protected InsurancePoliciesRepository $insurancePoliciesRepository;
 
+    protected AgeContributionCacheService $ageContributionCacheService;
+
     /**
      * Inject the InsurancePoliciesRepository
      */
     public function injectInsurancePoliciesRepository(InsurancePoliciesRepository $insurancePoliciesRepository): void
     {
         $this->insurancePoliciesRepository = $insurancePoliciesRepository;
+    }
+
+    /**
+     * Inject the AgeContributionCacheService
+     */
+    public function injectAgeContributionCacheService(AgeContributionCacheService $ageContributionCacheService): void
+    {
+        $this->ageContributionCacheService = $ageContributionCacheService;
     }
 
     /**
@@ -67,7 +78,16 @@ class InsuranceController extends ActionController
      */
     public function ajaxAction(PolicySearch $policySearch): ResponseInterface
     {
-
+        // Check if policy is in the cache
+        $cachedContribution = $this->ageContributionCacheService->getCache($policySearch);
+        if ($cachedContribution !== null) {
+            // If cached contribution exists, return it
+            return JsonResponseFactory::success([
+                'age' => $policySearch->getAge(),
+                'contribution' => $cachedContribution,
+            ]);
+        }
+        
         $policyContribution = $this->insurancePoliciesRepository->findByUid($policySearch->getPolicyUid());
         if ($policyContribution === null) {
             return JsonResponseFactory::error('No policy found with the given ID', 404);
@@ -79,6 +99,9 @@ class InsuranceController extends ActionController
         if ($contribution === null) {
             return JsonResponseFactory::error('No contribution found for the given age', 404);
         }
+
+        // Set the contribution in the cache
+        $this->ageContributionCacheService->setCache($policySearch, $contribution);
 
         // Return the contribution as a JSON response
         return JsonResponseFactory::success([

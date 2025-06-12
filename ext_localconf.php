@@ -42,7 +42,7 @@ defined('TYPO3') || die();
     // );
 
     //Hook
-    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][]
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass']['insurnacepremium']
         = PolicyDataHandlerHook::class;
 
     // Register Cache Configuration

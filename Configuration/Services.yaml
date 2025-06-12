@@ -5,4 +5,12 @@ services:
       exclude: '../Classes/Domain/Model/*'
       autowire: true
       autoconfigure: true
-  
+
+  cache.insurnacepremium_calculated:
+    class: TYPO3\CMS\Core\Cache\Frontend\FrontendInterface
+    factory: ['@TYPO3\CMS\Core\Cache\CacheManager', 'getCache']
+    arguments: ['insurnacepremium_calculated']
+
+  Zohaibdev\InsurnacePremium\Service\AgeContributionCacheService:
+    arguments:
+      $cache: '@cache.insurnacepremium_calculated'  

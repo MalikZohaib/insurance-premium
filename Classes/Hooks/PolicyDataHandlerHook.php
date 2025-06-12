@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace Zohaibdev\InsurnacePremium\Hooks;
 
+use TYPO3\CMS\Core\Cache\CacheManager;
 use TYPO3\CMS\Core\DataHandling\DataHandler;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use Psr\Log\LoggerInterface;
 use TYPO3\CMS\Core\Utility\MathUtility;
+use Zohaibdev\InsurnacePremium\Service\AgeContributionCacheService;
 
 class PolicyDataHandlerHook
 {
@@ -19,6 +21,7 @@ class PolicyDataHandlerHook
         array $fieldArray,
         DataHandler $dataHandler
     ): void {
+
         if ($table !== 'tx_insurnacepremium_domain_model_insurancepolicies' || !isset($fieldArray['body'])) {
             return;
         }
@@ -27,7 +30,6 @@ class PolicyDataHandlerHook
         if (!is_array($fieldArray['body'])) {
             throw new \RuntimeException('Invalid JSON format in "body".');
         }
-        debug($fieldArray['body']);
         foreach ($fieldArray['body'] as $range => $amount) {
             if (!preg_match('/^\d+-\d+$/', $range)) {
                 throw new \RuntimeException("Invalid age range: {$range}");
@@ -36,11 +38,13 @@ class PolicyDataHandlerHook
                 throw new \RuntimeException("Invalid amount for range {$range}: must be numeric.");
             }
         }
+
+        // Remove the cache for the policy
+        $cache = GeneralUtility::makeInstance(CacheManager::class)->getCache('insurnacepremium_calculated');
+        $ageContributionCacheService = GeneralUtility::makeInstance(
+            AgeContributionCacheService::class,
+            $cache
+        );
+        $ageContributionCacheService->clearCacheByTag((int) $id);
     }
-    // private function log(string $message, string $level = 'info'): void
-    // {
-    //     $logger = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Log\LogManager::class)
-    //     ->getLogger(__CLASS__);
-    //     $logger->$level('[InsurancePolicyHook] ' . $message);
-    // }
 }

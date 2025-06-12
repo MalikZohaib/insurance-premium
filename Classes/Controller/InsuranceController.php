@@ -105,7 +105,6 @@ class InsuranceController extends ActionController
     protected function collectValidationErrors(): array
     {
         $errors = [];
-
         foreach ($this->arguments as $argument) {
             if (!$argument->getValidationResults()->hasErrors()) {
                 continue;

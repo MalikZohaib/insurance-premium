@@ -3,30 +3,6 @@
 	<file source-language="en" datatype="plaintext" original="EXT:insurnace_premium/Resources/Private/Language/locallang_db.xlf" date="2025-06-10T18:24:42Z" product-name="insurnace_premium">
 		<header/>
 		<body>
-			<trans-unit id="tx_insurnacepremium_domain_model_contribution" resname="tx_insurnacepremium_domain_model_contribution">
-				<source>Contribution</source>
-			</trans-unit>
-			<trans-unit id="tx_insurnacepremium_domain_model_contribution.description" resname="tx_insurnacepremium_domain_model_contribution.description">
-				<source>Contribution</source>
-			</trans-unit>
-			<trans-unit id="tx_insurnacepremium_domain_model_contribution.amount" resname="tx_insurnacepremium_domain_model_contribution.amount">
-				<source>Amount</source>
-			</trans-unit>
-			<trans-unit id="tx_insurnacepremium_domain_model_contribution.amount.description" resname="tx_insurnacepremium_domain_model_contribution.amount.description">
-				<source>Amount</source>
-			</trans-unit>
-			<trans-unit id="tx_insurnacepremium_domain_model_contribution.min_age" resname="tx_insurnacepremium_domain_model_contribution.min_age">
-				<source>Min Age</source>
-			</trans-unit>
-			<trans-unit id="tx_insurnacepremium_domain_model_contribution.min_age.description" resname="tx_insurnacepremium_domain_model_contribution.min_age.description">
-				<source>Min Age</source>
-			</trans-unit>
-			<trans-unit id="tx_insurnacepremium_domain_model_contribution.max_age" resname="tx_insurnacepremium_domain_model_contribution.max_age">
-				<source>Max Age</source>
-			</trans-unit>
-			<trans-unit id="tx_insurnacepremium_domain_model_contribution.max_age.description" resname="tx_insurnacepremium_domain_model_contribution.max_age.description">
-				<source>Max Age</source>
-			</trans-unit>
 			<trans-unit id="tx_insurnacepremium_domain_model_insurancepolicies" resname="tx_insurnacepremium_domain_model_insurancepolicies">
 				<source>Insurance Policies</source>
 			</trans-unit>
@@ -44,12 +20,6 @@
 			</trans-unit>
 			<trans-unit id="tx_insurnacepremium_domain_model_insurancepolicies.body.description" resname="tx_insurnacepremium_domain_model_insurancepolicies.body.description">
 				<source>Body</source>
-			</trans-unit>
-			<trans-unit id="tx_insurnacepremium_domain_model_insurancepolicies.contributions" resname="tx_insurnacepremium_domain_model_insurancepolicies.contributions">
-				<source>Contributions</source>
-			</trans-unit>
-			<trans-unit id="tx_insurnacepremium_domain_model_insurancepolicies.contributions.description" resname="tx_insurnacepremium_domain_model_insurancepolicies.contributions.description">
-				<source>Contributions</source>
 			</trans-unit>
 			<trans-unit id="tx_insurnace_premium_insurancecalculator.name" resname="tx_insurnace_premium_insurancecalculator.name">
 				<source>Insurance Calculator</source>

@@ -1,4 +1,4 @@
-Site Package for the project "tasks sitepackage"
+Extension "Insurance Premium"
 ==============================================================
 
 Add some explanation here.

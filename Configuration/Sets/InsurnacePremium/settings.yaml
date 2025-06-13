@@ -1,0 +1,9 @@
+plugin:
+  insurnace_premium:
+    settings:
+      ajaxPageTypeNum: 5953554
+      storagePid: 0
+    view:
+      layoutRootPath: 'EXT:insurnace_premium/Resources/Private/Layouts/'
+      partialRootPath: 'EXT:insurnace_premium/Resources/Private/Partials/'
+      templateRootPath: 'EXT:insurnace_premium/Resources/Private/Templates/'

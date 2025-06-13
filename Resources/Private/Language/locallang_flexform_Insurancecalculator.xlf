@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:insurnace_premium/Resources/Private/Language/locallang_flexform_Insurancecalculator.xlf" date="2025-06-10T18:24:42Z" product-name="insurnace_premium">
+		<header/>
+		<body>
+			<trans-unit id="settings.policy.label" resname="settings.policy.label">
+				<source>Select Insurance Policy</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

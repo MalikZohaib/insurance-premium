@@ -27,6 +27,21 @@
 			<trans-unit id="tx_insurnace_premium_insurancecalculator.description" resname="tx_insurnace_premium_insurancecalculator.description">
 				<source>This plugin shows the single insurance premium calculator with its own range of premium values.</source>
 			</trans-unit>
+			<trans-unit id="tt_content.ctype.insurnacepremium_insurancecalculator.title">
+				<source>Insurance Calculator</source>
+			</trans-unit>
+			<trans-unit id="tt_content.ctype.insurnacepremium_insurancecalculator.description">
+				<source>Insurance calculator with its own range of premium values.</source>
+			</trans-unit>
+			<trans-unit id="tt_content.ctype.insurnacepremium_insurancecalculator.preview">
+				<source>Insurance Plugin Preview</source>
+			</trans-unit>
+			<trans-unit id="tt_content.ctype.insurnacepremium_insurancecalculator.preview.no_policy_selected">
+				<source>No policy selected. Please configure the plugin settings.</source>
+			</trans-unit>
+			<trans-unit id="tt_content.ctype.insurnacepremium_insurancecalculator.preview.policy_selected">
+				<source>Selected Policy:</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

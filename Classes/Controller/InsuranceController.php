@@ -10,6 +10,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Extbase\Annotation\Inject;
 use Psr\Http\Message\ResponseInterface;
+use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 use Zohaibdev\InsurnacePremium\Domain\Model\Dto\PolicySearch;
 use Zohaibdev\InsurnacePremium\Domain\Repository\InsurancePoliciesRepository;
 use Zohaibdev\InsurnacePremium\Service\AgeContributionCacheService;
@@ -58,7 +59,7 @@ class InsuranceController extends ActionController
         $policyContribution = $this->insurancePoliciesRepository->findByUid($policyId);
         if ($policyContribution === null) {
             // If no policy is found, return an error response
-            $this->addFlashMessage('No policy found with the given ID.', '', \TYPO3\CMS\Core\Type\ContextualFeedbackSeverity::ERROR);
+            $this->addFlashMessage(LocalizationUtility::translate('Insurancecalculator.ajax.no_policy_id', 'insurnace_premium'), '', \TYPO3\CMS\Core\Type\ContextualFeedbackSeverity::ERROR);
             return $this->htmlResponse();
         }
 
@@ -90,14 +91,14 @@ class InsuranceController extends ActionController
         
         $policyContribution = $this->insurancePoliciesRepository->findByUid($policySearch->getPolicyUid());
         if ($policyContribution === null) {
-            return JsonResponseFactory::error('No policy found with the given ID', 404);
+            return JsonResponseFactory::error(LocalizationUtility::translate('Insurancecalculator.ajax.no_policy_id', 'insurnace_premium'), 404);
         }
 
         // find the contribution based on the age inside the policy body
         $resolver = new AgeRangeResolver($policyContribution->getBody());
         $contribution = $resolver->findContributionByAge((int) $policySearch->getAge());
         if ($contribution === null) {
-            return JsonResponseFactory::error('No contribution found for the given age', 404);
+            return JsonResponseFactory::error(LocalizationUtility::translate('Insurancecalculator.ajax.contribution_not_found', 'insurnace_premium'), 404);
         }
 
         // Set the contribution in the cache

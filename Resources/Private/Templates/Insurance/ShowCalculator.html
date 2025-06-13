@@ -1,19 +1,19 @@
 <f:form id="InsuranceCalculationForm" action="ajax" method="post" object="{policySearch}" name="policySearch" pageType="5953554">
     <h3>{policyContributionTitle}</h3>
 
-    <label>Min Age:</label>
+    <label><f:translate key="insurancecalculator.label.form.age"/></label>
     <f:form.textfield
         property="age"
         type="number"
         min="0"
         step="1"
         required="required"
-        title="Please enter a valid age"
-        placeholder="Your age"
+        title="{f:translate(key: 'insurancecalculator.label.form.age')}"
+        placeholder="{f:translate(key: 'insurancecalculator.label.form.input.age.placeholder')}"
     />
 
     <f:form.hidden property="policyUid" value="{policySearch.policyUid}" />
-    <f:form.submit id="searchButton" value="Search" />
+    <f:form.submit id="searchButton" value="{f:translate(key: 'insurancecalculator.label.form.button.search')}" />
 </f:form>
 
 <div id="ajaxResult"></div>

@@ -10,6 +10,7 @@ use TYPO3\CMS\Backend\View\PageLayoutView;
 use TYPO3\CMS\Core\Localization\LanguageService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Backend\Utility\BackendUtility;
+use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
 final class InsuranceCalculatorPreviewRenderer implements PreviewRendererInterface
 {
@@ -33,9 +34,9 @@ final class InsuranceCalculatorPreviewRenderer implements PreviewRendererInterfa
         $html = '<div class="insurance-plugin-preview">';
 
         if (!empty($policyRecord)) {
-            $html .= 'Selected Policy: <em>' . htmlspecialchars($policyRecord['title'] ?? '[No Title]') . '</em>';
+            $html .= $this->getLanguageService()->sL('LLL:EXT:insurnace_premium/Resources/Private/Language/locallang_db.xlf:tt_content.ctype.insurnacepremium_insurancecalculator.preview.policy_selected') . ' <em>' . htmlspecialchars($policyRecord['title'] ?? '[No Title]') . '</em>';
         } else {
-            $html .= 'No policy selected.';
+            $html .= '<em>' . $this->getLanguageService()->sL('LLL:EXT:insurnace_premium/Resources/Private/Language/locallang_db.xlf:tt_content.ctype.insurnacepremium_insurancecalculator.preview.no_policy_selected') . '</em>';
         }
 
         $html .= '</div>';
@@ -90,7 +91,7 @@ final class InsuranceCalculatorPreviewRenderer implements PreviewRendererInterfa
      */
     public function renderPageModulePreviewHeader(GridColumnItem $item): string
     {
-        return '<div class="insurance-plugin-preview-header"><strong>Insurance Plugin Preview</strong></div>';
+        return '<div class="insurance-plugin-preview-header"><strong>' . $this->getLanguageService()->sL('LLL:EXT:insurnace_premium/Resources/Private/Language/locallang_db.xlf:tt_content.ctype.insurnacepremium_insurancecalculator.preview') . '</strong></div>';
     }
 
     /**

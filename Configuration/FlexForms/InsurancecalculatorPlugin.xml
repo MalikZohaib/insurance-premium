@@ -7,7 +7,7 @@
         </TCEforms>
         <el>
           <settings.policy>
-              <label>Select Insurance Policy</label>
+                <label>LLL:EXT:insurnace_premium/Resources/Private/Language/locallang_flexform_Insurancecalculator.xlf:settings.policy.label</label>
               <config>
                 <type>select</type>
                 <renderType>selectSingle</renderType>

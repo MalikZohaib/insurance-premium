@@ -21,6 +21,21 @@
 			<trans-unit id="tx_insurnacepremium_domain_model_insurancepolicies.body.description" resname="tx_insurnacepremium_domain_model_insurancepolicies.body.description">
 				<source>Body</source>
 			</trans-unit>
+			<trans-unit id="Insurancecalculator.ajax.no_policy_id" resname="Insurancecalculator.ajax.no_policy_id">
+				<source>No policy found with the given ID</source>
+			</trans-unit>
+			<trans-unit id="Insurancecalculator.ajax.contribution_not_found" resname="Insurancecalculator.ajax.contribution_not_found">
+				<source>No contribution found for the given age</source>
+			</trans-unit>
+			<trans-unit id="insurancecalculator.label.form.age" resname="insurancecalculator.label.form.age">
+				<source>Age:</source>
+			</trans-unit>
+			<trans-unit id="insurancecalculator.label.form.input.age.placeholder" resname="insurancecalculator.label.form.input.age.placeholder">
+				<source>Please enter age</source>
+			</trans-unit>
+			<trans-unit id="insurancecalculator.label.form.button.search" resname="insurancecalculator.label.form.button.search">
+				<source>Search</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

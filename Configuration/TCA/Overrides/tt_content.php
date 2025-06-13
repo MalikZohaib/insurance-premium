@@ -7,8 +7,12 @@ defined('TYPO3') || die();
 $pluginSignature = \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     'InsurnacePremium',
     'Insurancecalculator',
-    'Insurance Calculator',
-    'insurnace_premium-plugin-insurancecalculator'
+    'LLL:EXT:insurnace_premium/Resources/Private/Language/locallang_db.xlf:tt_content.ctype.insurnacepremium_insurancecalculator.title',
+    'insurnace_premium-plugin-insurancecalculator',
+    'plugins',
+    'LLL:EXT:insurnace_premium/Resources/Private/Language/locallang_db.xlf:tt_content.ctype.insurnacepremium_insurancecalculator.description',
+
+
 );
 
 ExtensionManagementUtility::addToAllTCAtypes(

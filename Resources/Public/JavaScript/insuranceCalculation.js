@@ -1,3 +1,19 @@
+function showError(message) {
+    const errorBox = document.getElementById('errors');
+    const errorParagraph = errorBox.querySelector('p');
+
+    errorParagraph.textContent = message;
+    errorBox.style.display = 'block';
+}
+
+function hideError() {
+    const errorBox = document.getElementById('errors');
+    const errorParagraph = errorBox.querySelector('p');
+    errorParagraph.textContent = '';
+    errorBox.style.display = 'none';
+}
+
+// Ensure the DOM is fully loaded before attaching event listeners
 document.addEventListener('DOMContentLoaded', function () {
 
     const searchBtn = document.querySelector('#searchButton');
@@ -26,14 +42,15 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(res => res.json())
             .then(data => {
                 const resultEl = document.getElementById('ajaxResult');
-                if (data.error) {
-                    resultEl.innerText = 'Error: ' + data.error;
+                if (data.message) {
+                    showError(data.message);
                 } else {
-                    resultEl.innerText = 'Premium: ' + (data.data.contribution);
+                    hideError();
+                    document.getElementById('ajaxResult').innerText = 'Premium: ' + (data.data.contribution);
                 }
             })
             .catch(err => {
-                document.getElementById('ajaxResult').innerText = 'AJAX error: ' + err.message;
+                showError(err.message);
             })
             .finally(() => {
                 searchBtn.disabled = false; // Re-enable button

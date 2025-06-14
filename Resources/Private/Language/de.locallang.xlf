@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2">
+  <file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2024-06-14T12:00:00Z">
+    <body>
+        <trans-unit id="tx_insurnacepremium_domain_model_insurancepolicies" resname="tx_insurnacepremium_domain_model_insurancepolicies">
+            <source>Insurance Policies</source>
+            <target>Keine Validierungsfehler gefunden</target>
+        </trans-unit>
+        <trans-unit id="tx_insurnacepremium_domain_model_insurancepolicies.description" resname="tx_insurnacepremium_domain_model_insurancepolicies.description">
+            <source>Insurance Policies</source>
+            <target>Versicherungspolicen</target>
+        </trans-unit>
+        <trans-unit id="tx_insurnacepremium_domain_model_insurancepolicies.title" resname="tx_insurnacepremium_domain_model_insurancepolicies.title">
+            <source>Title</source>
+            <target>Titel</target>
+        </trans-unit>
+        <trans-unit id="tx_insurnacepremium_domain_model_insurancepolicies.title.description" resname="tx_insurnacepremium_domain_model_insurancepolicies.title.description">
+            <source>Title</source>
+            <target>Titel</target>
+        </trans-unit>
+        <trans-unit id="tx_insurnacepremium_domain_model_insurancepolicies.body" resname="tx_insurnacepremium_domain_model_insurancepolicies.body">
+            <source>Body</source>
+            <target>Inhalt</target>
+        </trans-unit>
+        <trans-unit id="tx_insurnacepremium_domain_model_insurancepolicies.body.description" resname="tx_insurnacepremium_domain_model_insurancepolicies.body.description">
+            <source>Body</source>
+            <target>Inhalt</target>
+        </trans-unit>
+        <trans-unit id="Insurancecalculator.ajax.no_policy_id" resname="Insurancecalculator.ajax.no_policy_id">
+            <source>No policy found with the given ID</source>
+            <target>Keine Police mit der angegebenen ID gefunden</target>
+        </trans-unit>
+        <trans-unit id="Insurancecalculator.ajax.contribution_not_found" resname="Insurancecalculator.ajax.contribution_not_found">
+            <source>No contribution found for the given age</source>
+            <target>Keine Beitragsinformation für das angegebene Alter gefunden</target>
+        </trans-unit>
+        <trans-unit id="insurancecalculator.label.form.age" resname="insurancecalculator.label.form.age">
+            <source>Age:</source>
+            <target>Alter:</target>
+        </trans-unit>
+        <trans-unit id="insurancecalculator.label.form.input.age.placeholder" resname="insurancecalculator.label.form.input.age.placeholder">
+            <source>Enter age</source>
+            <target>Alter eingeben</target>
+        </trans-unit>
+        <trans-unit id="insurancecalculator.label.form.button.search" resname="insurancecalculator.label.form.button.search">
+            <source>Calculate premium</source>
+            <target>Beitrag berechnen</target>
+        </trans-unit>
+		</body>
+  </file>
+</xliff>

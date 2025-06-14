@@ -31,10 +31,10 @@
 				<source>Age:</source>
 			</trans-unit>
 			<trans-unit id="insurancecalculator.label.form.input.age.placeholder" resname="insurancecalculator.label.form.input.age.placeholder">
-				<source>Please enter age</source>
+				<source>Enter age</source>
 			</trans-unit>
 			<trans-unit id="insurancecalculator.label.form.button.search" resname="insurancecalculator.label.form.button.search">
-				<source>Search</source>
+				<source>Calculate premium</source>
 			</trans-unit>
 		</body>
 	</file>

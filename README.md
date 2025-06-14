@@ -31,10 +31,10 @@ Download the ZIP file or clone the repository into your TYPO3 `extensions` folde
 
 ````bash
 cd public/typo3conf/ext
-wget https://your-download-url.com/insurance_premium.zip
+wget https://your-download-url.com/insurance-premium.zip
 unzip insurance_premium.zip
 # or
-git clone https://your-git-repo.com/insurance_premium.git
+git clone https://your-git-repo.com/insurance-premium.git
 ```bash
 composer require vendor/insurance-premium
 ````

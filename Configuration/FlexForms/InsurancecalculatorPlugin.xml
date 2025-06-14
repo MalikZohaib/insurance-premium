@@ -12,7 +12,7 @@
                 <type>select</type>
                 <renderType>selectSingle</renderType>
                 <foreign_table>tx_insurnacepremium_domain_model_insurancepolicies</foreign_table>
-                <foreign_table_where>ORDER BY title</foreign_table_where>
+                <foreign_table_where>AND {#tx_insurnacepremium_domain_model_insurancepolicies}.{#sys_language_uid} IN (-1, 0) ORDER BY title</foreign_table_where>
                 <minitems>0</minitems>
                 <maxitems>1</maxitems>
                 <size>1</size>

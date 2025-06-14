@@ -47,22 +47,26 @@ class PolicyDataHandlerHook
         if ($table !== 'tx_insurnacepremium_domain_model_insurancepolicies') {
             return;
         }
+        
+        // Validate the "body" field for JSON structure and content
+        $rawBody = $incomingFieldArray['body'] ?? '';
+        $decoded = json_decode($rawBody, true);
+        $jsonError = json_last_error();
 
         $hasError = false;
         $message = '';
 
-        // Validate the 'body' JSON field
-        if (!is_array($incomingFieldArray['body'])) {
-            $message .= 'Invalid JSON format in "body".';
+        if (!is_array($decoded) || $jsonError !== JSON_ERROR_NONE) {
+            $message .= 'The "body" field contains invalid JSON: ' . json_last_error_msg();
             $hasError = true;
         } else {
-            foreach ($incomingFieldArray['body'] as $range => $amount) {
+            foreach ($decoded as $range => $amount) {
                 if (!preg_match('/^\d+-\d+$/', $range)) {
-                    $message .= "Invalid age range: {$range}";
+                    $message .= "Invalid age range format: {$range} (should be 'min-max'). ";
                     $hasError = true;
                 }
                 if (!is_numeric($amount)) {
-                    $message .= "Invalid amount for range {$range}: must be numeric.";
+                    $message .= "Invalid value for range {$range}: must be numeric.";
                     $hasError = true;
                 }
             }

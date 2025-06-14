@@ -14,7 +14,7 @@ class PolicySearch extends AbstractEntity
      * @var int
      */
     #[Validate(['validator' => 'NotEmptyValidator'])]
-     #[Validate(['validator' => 'Integer'])]
+    #[Validate(['validator' => 'Integer'])]
      protected ?int $policyUid = null;
 
     /**

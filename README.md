@@ -7,7 +7,6 @@ This TYPO3 extension provides a fully functional frontend & backend interface fo
 ## 🧩 Features
 
 * Frontend insurance calculator with AJAX
-* Record for insurance policies
 * JSON-based premium ranges (e.g., `"0-10": 12.5`)
 * Validation for custom fields
 * Cache optimization by language and policy ID
@@ -15,41 +14,56 @@ This TYPO3 extension provides a fully functional frontend & backend interface fo
 
 ---
 
+## 📦 Installation Requirements
+
+* TYPO3 v13 or later
+* PHP 8.4+
+* Composer (for managing dependencies if required)
+* A working site configuration with Site Sets enabled
+
+---
+
 ## 🚀 Installation
 
-### 1. Install via Composer:
+### 1. Download Extension:
 
+Download the ZIP file or clone the repository into your TYPO3 `extensions` folder:
+
+````bash
+cd public/typo3conf/ext
+wget https://your-download-url.com/insurance_premium.zip
+unzip insurance_premium.zip
+# or
+git clone https://your-git-repo.com/insurance_premium.git
 ```bash
 composer require vendor/insurance-premium
-```
+````
 
-### 2. Activate Extension
+### 2. Site Configuration
 
-Enable in the TYPO3 Extension Manager or via `PackageStates.php`.
+In your site configuration `config.yaml`:
 
-### 3. Include Static TypoScript
+* Add to `siteSets.dependencies`:
 
-In your site template:
-
-* Include `Insurance Premium (Main)`
+  ```yaml
+  siteSets:
+    dependencies:
+      - Insurance Premium
+      - main set
+  ```
 
 ---
 
 ## 🔧 Configuration
 
-### PageTSConfig
-
-```ts
-TYPO3.backend.siteTitle = Insurance Admin Panel
-```
-
 ### FlexForm
 
-* Configure plugin settings (AJAX page type, template path overrides)
+* Contains a single dropdown field: **Select Insurance Policy**
+* Used to link a specific policy record to the plugin instance
 
 ### Site Settings (Site Sets)
 
-Set values for paths, PIDs, features using:
+Set values for paths, PIDs, features, and AJAX page type using:
 
 * `Configuration/Sets/InsuranceCalculatorSet/config.yaml`
 * `settings.yaml`
@@ -60,10 +74,12 @@ Set values for paths, PIDs, features using:
 
 ### Backend
 
+You can manage policies by creating new **Insurance Policy** records manually:
+
 1. Go to **Web → List**
 2. Select a sysfolder
-3. Create a new record: **Insurance Policy**
-4. Enter JSON body:
+3. Create a new record of type **Insurance Policy** with fields like `title` and `body`
+4. In the `body` field, enter a JSON value such as:
 
 ```json
 {
@@ -74,7 +90,9 @@ Set values for paths, PIDs, features using:
 
 ### Frontend
 
-Use `<insurance-calculator>` plugin in your content element.
+Insert the content element of CType `insurnacepremium_insurancecalculator` into your page using the "Insert Plugin" wizard.
+
+This plugin will render the insurance calculator linked to the selected policy from FlexForm.
 
 ---
 
@@ -84,6 +102,11 @@ Use `<insurance-calculator>` plugin in your content element.
 
 * Validates JSON field
 * Shows flash message instead of exceptions
+
+### Cache Clearing Hook:
+
+* Clears cache automatically on create, update, or delete of insurance policy records
+* Uses the original (default language) UID for tag-based cache invalidation
 
 ### Cache Tagging:
 
@@ -102,7 +125,3 @@ Use `<insurance-calculator>` plugin in your content element.
 (Add development & contribution guidelines)
 
 ---
-
-## ❓ FAQ
-
-(Add common questions and answers)

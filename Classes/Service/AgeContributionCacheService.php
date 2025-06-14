@@ -6,6 +6,8 @@ namespace Zohaibdev\InsurnacePremium\Service;
 
 use TYPO3\CMS\Core\Cache\CacheManager;
 use TYPO3\CMS\Core\Cache\Frontend\VariableFrontend;
+use TYPO3\CMS\Core\Context\Context;
+use TYPO3\CMS\Core\Site\Entity\SiteLanguage;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use Zohaibdev\InsurnacePremium\Domain\Model\Dto\PolicySearch;
 
@@ -46,6 +48,15 @@ class AgeContributionCacheService
 
     protected function generateCacheKey(PolicySearch $policySearch): string
     {
-        return 'policy_' . $policySearch->getPolicyUid() . '_age_' . $policySearch->getAge();
+        return 'policy_' . md5($policySearch->getPolicyUid() . '_age_' . $policySearch->getAge(). '_lang_' . $this->getCurrentLanguage());
+    }
+
+    protected function getCurrentLanguage(): int
+    {
+        $context = GeneralUtility::makeInstance(Context::class);
+        /** @var SiteLanguage $language */
+        $language = $context->getAspect('language');
+
+        return $language->getId(); 
     }
 }

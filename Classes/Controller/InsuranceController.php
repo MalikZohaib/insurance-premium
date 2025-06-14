@@ -68,6 +68,7 @@ class InsuranceController extends ActionController
         // Assign the policy contribution to the view
         $this->view->assign('policyContributionTitle', $policyContribution->getTitle());
         $this->view->assign('policySearch', $policySearch);
+        $this->view->assign('ajaxPageTypeNum', $this->settings['ajaxPageTypeNum'] ?? 0);
         return $this->htmlResponse();
     }
 
@@ -88,7 +89,7 @@ class InsuranceController extends ActionController
                 'contribution' => $cachedContribution,
             ]);
         }
-        
+
         $policyContribution = $this->insurancePoliciesRepository->findByUid($policySearch->getPolicyUid());
         if ($policyContribution === null) {
             return JsonResponseFactory::error(LocalizationUtility::translate('Insurancecalculator.ajax.no_policy_id', 'insurnace_premium'), 404);

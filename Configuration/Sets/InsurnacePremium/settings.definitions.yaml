@@ -1,32 +1,50 @@
 categories:
-  BlogExample:
-    label: 'Blog Example' # (1)
-  BlogExample.templates:
-    label: 'Templates' # (2)
-    parent: BlogExample
-  BlogExample.pages:
-    label: 'Pages'
-    parent: BlogExample
+  Insurance:
+    label: 'Insurance'
+  Insurance.paths:
+    label: 'Paths'
+    parent: Insurance
+  Insurance.persistence:
+    label: 'Persistence'
+    parent: Insurance
+  Insurance.settings:
+    label: 'Plugin Settings'
+    parent: Insurance
 
 settings:
-  blogExample.templateRootPath:  # (5)
-    label: 'Templates' # (3)
-    category: BlogExample.templates # (2)
-    description: 'Path to template root'  # (4)
-    type: string  # (6)
-    default: 'EXT:blog_example/Resources/Private/Templates/'  # (7) + (8)
-  blogExample.partialRootPath:
-    label: 'Partials'
-    category: BlogExample.templates
-    description: 'Path to partial root'
+  insurancepremium_insurancecalculator.view.templateRootPath:
+    label: 'Template Root Path'
+    category: Insurance.paths
+    description: 'Base path for Fluid templates'
     type: string
-    default: 'EXT:blog_example/Resources/Private/Partials/'
-plugin:
-  insurnace_premium:
-    settings:
-      ajaxPageTypeNum: 5953554
-      storagePid: 0
-    view:
-      layoutRootPath: 'EXT:insurnace_premium/Resources/Private/Layouts/'
-      partialRootPath: 'EXT:insurnace_premium/Resources/Private/Partials/'
-      templateRootPath: 'EXT:insurnace_premium/Resources/Private/Templates/'
+    default: 'EXT:insurnace_premium/Resources/Private/Templates/'
+  insurancepremium_insurancecalculator.view.partialRootPath:
+    label: 'Partial Root Path'
+    category: Insurance.paths
+    description: 'Base path for Fluid partials'
+    type: string
+    default: 'EXT:insurnace_premium/Resources/Private/Partials/'
+  insurancepremium_insurancecalculator.view.layoutRootPath:
+    label: 'Layout Root Path'
+    category: Insurance.paths
+    description: 'Base path for Fluid layouts'
+    type: string
+    default: 'EXT:insurnace_premium/Resources/Private/Layouts/'
+  insurancepremium_insurancecalculator.persistence.storagePid:
+    label: 'Storage PID'
+    category: Insurance.persistence
+    description: 'Sysfolder for plugin data'
+    type: int
+    default: 0
+  insurancepremium_insurancecalculator.settings.ajaxPageTypeNum:
+    label: 'AJAX page type number'
+    category: Insurance.settings
+    description: 'Numerical TypoScript typeNum for AJAX calls'
+    type: int
+    default: 0
+  insurancepremium_insurancecalculator.features.ignoreAllEnableFieldsInBe:
+    label: 'Ignore Enable Fields in BE'
+    category: Insurance.settings
+    description: 'Whether to ignore all enable fields in backend context'
+    type: bool
+    default: false

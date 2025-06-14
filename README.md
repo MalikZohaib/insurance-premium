@@ -46,10 +46,9 @@ In your site configuration `config.yaml`:
 * Add to `siteSets.dependencies`:
 
   ```yaml
-  siteSets:
     dependencies:
-      - Insurance Premium
-      - main set
+        - Insurance Premium
+        - main set
   ```
 
 ---
@@ -90,13 +89,13 @@ You can manage policies by creating new **Insurance Policy** records manually:
 
 ### Frontend
 
-Insert the content element of CType `insurnacepremium_insurancecalculator` into your page using the "Insert Plugin" wizard.
+Insert the content element of CType `insurnacepremium_insurancecalculator` into your page using the "Create new content" wizard.
 
 This plugin will render the insurance calculator linked to the selected policy from FlexForm.
 
 ---
 
-## 🪝 Hooks & Events
+## 🪝 Hooks & Events Used
 
 ### DataHandler Hook:
 
@@ -116,12 +115,8 @@ This plugin will render the insurance calculator linked to the selected policy f
 
 ## 🧪 Testing
 
-(Add instructions for unit and functional tests)
-
 ---
 
 ## 🛠️ Development
-
-(Add development & contribution guidelines)
 
 ---

@@ -22,11 +22,19 @@ class PolicyDataHandlerHook
         $table,
         $id,
         array $fieldArray,
-        DataHandler $dataHandler
+        DataHandler $pObj
     ): void {
 
         if ($table !== 'tx_insurnacepremium_domain_model_insurancepolicies' || !isset($fieldArray['body'])) {
             return;
+        }
+
+        // Fetch the original UID if this is a localization
+        if (
+            isset($pObj->datamap[$table][$id]['l10n_parent']) &&
+            (int) $pObj->datamap[$table][$id]['l10n_parent'] > 0
+        ) {
+            $id = (int) $pObj->datamap[$table][$id]['l10n_parent'];
         }
 
         // Remove the cache for the policy
@@ -47,9 +55,13 @@ class PolicyDataHandlerHook
         if ($table !== 'tx_insurnacepremium_domain_model_insurancepolicies') {
             return;
         }
-        
+
         // Validate the "body" field for JSON structure and content
         $rawBody = $incomingFieldArray['body'] ?? '';
+        if (!is_string($rawBody) || trim($rawBody) === '') {
+            // When called for translated record, the body might not be set
+            return;
+        }
         $decoded = json_decode($rawBody, true);
         $jsonError = json_last_error();
 
@@ -71,7 +83,6 @@ class PolicyDataHandlerHook
                 }
             }
         }
-
 
         if ($hasError) {
             // Unset to prevent invalid save
